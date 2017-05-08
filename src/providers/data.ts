@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { Storage } from '@ionic/storage';
 
 @Injectable()
 export class Data {
 
   todos: any = [];
 
-  constructor(public http: Http) {
+  constructor(public http: Http, public storage: Storage) {
     console.log('Hello Data Provider');
   }
 
@@ -19,6 +20,14 @@ export class Data {
       } else {
         // Meil pole veel midagi tagastada, seega ei tee midagi
         //resolve(undefined);
+        this.storage.get('todoData').then((todos) => {
+          if (todos && typeof(todos) !== "undefined") {
+            this.todos = todos;
+          }
+          
+          resolve(this.todos);
+        });
+        
       }
     });
   }
@@ -32,5 +41,7 @@ export class Data {
     } else {
       this.todos[index] = todo;
     }
+
+   this.storage.set('todoData', this.todos);
   }
 }

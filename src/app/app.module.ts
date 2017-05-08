@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 import { EditTodo } from '../pages/edit-todo/edit-todo';
 import { Data } from '../providers/data';
 import { HttpModule } from '@angular/http'; // Vaja storage jaoks
+import { IonicStorageModule } from '@ionic/storage'; // Vaja storage jaoks
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HttpModule } from '@angular/http'; // Vaja storage jaoks
   imports: [
     BrowserModule,
     HttpModule, // Vaja lisada et storage t;;le hakkaks
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot() // Lisame Storage kasutamiseks
   ],
   bootstrap: [IonicApp],
   entryComponents: [
