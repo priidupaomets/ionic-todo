@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Data } from '../../providers/data';
 
 
 @IonicPage()
@@ -11,7 +12,7 @@ export class EditTodo {
 
   todo: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public dataService: Data) {
     this.todo = { title: '', description: '' };
   }
 
@@ -26,6 +27,7 @@ export class EditTodo {
 
   save() {
     //console.log('Saving todo');
+    this.dataService.save(this.todo);
     this.navCtrl.pop();
   }
 }

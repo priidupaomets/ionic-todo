@@ -7,6 +7,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { EditTodo } from '../pages/edit-todo/edit-todo';
+import { Data } from '../providers/data';
+import { HttpModule } from '@angular/http'; // Vaja storage jaoks
 
 @NgModule({
   declarations: [
@@ -16,6 +18,7 @@ import { EditTodo } from '../pages/edit-todo/edit-todo';
   ],
   imports: [
     BrowserModule,
+    HttpModule, // Vaja lisada et storage t;;le hakkaks
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -27,7 +30,8 @@ import { EditTodo } from '../pages/edit-todo/edit-todo';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Data
   ]
 })
 export class AppModule {}
