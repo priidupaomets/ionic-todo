@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="danger">
     <ion-title>
       TODO
     </ion-title>
@@ -11,7 +11,7 @@
 
 <ion-content padding>
 
-  <ion-list>
+  <ion-list no-lines>
     <button ion-item *ngFor="let todo of dataService.todos" (click)="editTodo(todo)">
       {{todo.title}}
     </button>
