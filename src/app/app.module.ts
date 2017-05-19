@@ -6,7 +6,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { EditTodo } from '../pages/edit-todo/edit-todo';
+//import { EditTodo } from '../pages/edit-todo/edit-todo';
+import { EditTodoModule } from '../pages/edit-todo/edit-todo.module';
 import { Data } from '../providers/data';
 import { HttpModule } from '@angular/http'; // Vaja storage jaoks
 import { IonicStorageModule } from '@ionic/storage'; // Vaja storage jaoks
@@ -15,19 +16,20 @@ import { IonicStorageModule } from '@ionic/storage'; // Vaja storage jaoks
   declarations: [
     MyApp,
     HomePage,
-    EditTodo
+    //EditTodo
   ],
   imports: [
     BrowserModule,
-    HttpModule, // Vaja lisada et storage t;;le hakkaks
+    HttpModule, // Vaja lisada et storage tööle hakkaks
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot() // Lisame Storage kasutamiseks
+    IonicStorageModule.forRoot(), // Lisame Storage kasutamiseks
+    EditTodoModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    EditTodo
+    //EditTodo
   ],
   providers: [
     StatusBar,
